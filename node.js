@@ -4,13 +4,9 @@ const PORT = 3000;
 
 app.use(express.json());
 
-// 🗄️ "Banco de dados" em memória
 let users = [];
 let nextId = 1;
 
-//
-// ✅ CREATE - Criar usuário
-//
 app.post("/users", (req, res) => {
   const { name } = req.body;
 
@@ -28,16 +24,10 @@ app.post("/users", (req, res) => {
   res.status(201).json(newUser);
 });
 
-//
-// ✅ READ - Listar usuários
-//
 app.get("/users", (req, res) => {
   res.json(users);
 });
 
-//
-// ✅ UPDATE - Atualizar usuário
-//
 app.put("/users/:id", (req, res) => {
   const id = Number(req.params.id);
   const { name } = req.body;
@@ -57,9 +47,6 @@ app.put("/users/:id", (req, res) => {
   res.json(user);
 });
 
-//
-// ✅ DELETE - Remover usuário
-//
 app.delete("/users/:id", (req, res) => {
   const id = Number(req.params.id);
 
@@ -74,7 +61,6 @@ app.delete("/users/:id", (req, res) => {
   res.send("Usuário removido com sucesso ✅");
 });
 
-// ✅ READ - Buscar usuário por ID
 app.get("/users/:id", (req, res) => {
   const id = Number(req.params.id);
 
