@@ -9,6 +9,7 @@ const createUser = async (req, res) => {
   res.status(201).json({ id: result.insertId, name });
 };
 
+
 const getAllUsers = async (req, res) => {
   const [users] = await db.query("SELECT * FROM users");
   res.json(users);
